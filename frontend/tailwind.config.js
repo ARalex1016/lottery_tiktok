@@ -14,7 +14,7 @@ export default {
       },
       boxShadow: {
         "custom-inset":
-          "inset 4px 6px 15px 3px rgba(0, 0, 0, 0.4), inset 0 4px 6px -2px rgba(0, 0, 0, 0.4)",
+          "inset 4px 6px 15px 3px rgba(0, 0, 0, 0.6), inset 4px 4px 6px -2px rgba(0, 0, 0, 0.4)",
       },
     },
   },

@@ -1,19 +1,28 @@
 import { useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
+
+// Lucide Icons
 import { ChevronDown } from "lucide-react";
 import { ChevronUp } from "lucide-react";
-
-// Custom Hook
-import useControl from "../Hooks/useControl";
+import { Plus } from "lucide-react";
+import { Minus } from "lucide-react";
 
 // Components
 import Slider from "./Slider";
 import ColumnBox from "./ColumnBox";
 import Label from "./Label";
 
+// Store
+import useControlStore from "../Store/useControlStore";
+
 const MenuBar = () => {
-  const { totalWinners, totalPlayer, setTotalWinners, setTotalPlayer } =
-    useControl();
+  const {
+    totalWinners,
+    totalPlayers,
+    setTotalWinners,
+    addPlayer,
+    minusPlayer,
+  } = useControlStore();
 
   const [isOpen, setIsOpen] = useState(false);
   const sliderControls = useAnimationControls();
@@ -55,15 +64,34 @@ const MenuBar = () => {
             <Label htmlFor="totalPlayer" className="text-primary">
               Total Players
             </Label>
-            <input
-              type="number"
-              id="totalPlayer"
-              min={0}
-              max={8}
-              value={totalPlayer}
-              onChange={(e) => setTotalPlayer(Number(e.target.value))}
-              className="w-16 aspect-square text-2xl font-semibold text-center border-none rounded-lg shadow-custom-inset p-2 outline-none"
-            />
+
+            <div className="flex flex-row gap-x-4">
+              <input
+                type="number"
+                id="totalPlayer"
+                min={0}
+                value={totalPlayers}
+                readOnly
+                className="w-16 aspect-square text-2xl font-semibold text-center border-none rounded-lg shadow-custom-inset p-2 outline-none"
+              />
+
+              {/* Plus & Minus Button */}
+              <div className="flex flex-col justify-around items-center">
+                <button
+                  onClick={() => addPlayer(1)}
+                  className="w-6 h-6 text-primary bg-slate-50 aspect-square rounded-full shadow-md shadow-slate-500 flex justify-center items-center cursor-pointer hover:scale-105"
+                >
+                  <Plus />
+                </button>
+
+                <button
+                  onClick={() => minusPlayer(1)}
+                  className="w-6 h-6 text-primary bg-slate-50 aspect-square rounded-full shadow-md shadow-slate-500 flex justify-center items-center cursor-pointer hover:scale-105"
+                >
+                  <Minus />
+                </button>
+              </div>
+            </div>
           </ColumnBox>
 
           {/* Open & Close Toggle Button */}
