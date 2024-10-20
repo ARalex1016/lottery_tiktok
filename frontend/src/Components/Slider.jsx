@@ -13,10 +13,12 @@ const Slider = ({ sliderControls, isOpen, children }) => {
           },
         }}
         initial="initial"
-        transition={{
-          duration: 0.3,
-        }}
         animate={sliderControls}
+        transition={{
+          type: "spring",
+          stiffness: 300,
+          damping: 20,
+        }}
         className={`w-[95%] rounded-b-xl absolute z-50 ${
           isOpen && "shadow-md shadow-supporting"
         }`}
