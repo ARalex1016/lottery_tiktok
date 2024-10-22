@@ -7,12 +7,12 @@ import useControlStore from "../Store/useControlStore";
 // Utils
 import { getOrdinalSuffix } from "../Utils/NumberManager";
 
-const GameScreen = () => {
+const GameWindow = () => {
   const { totalWinners } = useControlStore();
 
   return (
     <>
-      {/* GameScreen */}
+      {/* GameWindow */}
       <div className="w-[95%] h-screen flex justify-center items-center">
         {/* GameBox */}
         <div className="w-full flex flex-row justify-center items-center">
@@ -27,4 +27,4 @@ const GameScreen = () => {
   );
 };
 
-export default GameScreen;
+export default GameWindow;

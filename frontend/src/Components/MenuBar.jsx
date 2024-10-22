@@ -69,7 +69,8 @@ const MenuBar = () => {
               <input
                 type="number"
                 id="totalPlayer"
-                min={0}
+                min={2}
+                max={10}
                 value={totalPlayers}
                 readOnly
                 className="w-16 aspect-square text-2xl font-semibold text-center border-none rounded-lg shadow-custom-inset p-2 outline-none"
@@ -79,6 +80,7 @@ const MenuBar = () => {
               <div className="flex flex-col justify-around items-center">
                 <button
                   onClick={() => addPlayer(1)}
+                  disabled={totalPlayers >= 10}
                   className="w-6 h-6 text-primary bg-slate-50 aspect-square rounded-full shadow-md shadow-slate-500 flex justify-center items-center cursor-pointer hover:scale-105"
                 >
                   <Plus />
@@ -86,6 +88,7 @@ const MenuBar = () => {
 
                 <button
                   onClick={() => minusPlayer(1)}
+                  disabled={totalPlayers <= 2}
                   className="w-6 h-6 text-primary bg-slate-50 aspect-square rounded-full shadow-md shadow-slate-500 flex justify-center items-center cursor-pointer hover:scale-105"
                 >
                   <Minus />

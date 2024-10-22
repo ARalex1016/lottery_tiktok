@@ -1,13 +1,13 @@
 // Components
 import MenuBar from "../Components/MenuBar";
-import GameScreen from "../Components/GameScreen";
+import GameWindow from "../Components/GameWindow";
 
 const GamePage = () => {
   return (
     <>
       <div className="flex justify-center">
         <MenuBar />
-        <GameScreen />
+        <GameWindow />
       </div>
     </>
   );
